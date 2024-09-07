@@ -1,3 +1,4 @@
+import { Header } from "./components/Header";
 import { SearchField } from "./components/SearchField";
 import { CurrentWeather } from "./components/CurrentWeather";
 import { DailyForecast } from "./components/DailyForecast";
@@ -27,6 +28,7 @@ import { DailyForecast } from "./components/DailyForecast";
 export const Dashboard = () => {
   return (
     <>
+      <Header />
       <SearchField />
       <CurrentWeather />
       <DailyForecast />
