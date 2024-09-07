@@ -132,8 +132,8 @@ export const CurrentWeather = () => {
         <WaterDropIcon /> Humidity {humidity}%
       </Typography>
       <Typography>
-        <AirIcon /> Wind {windSpeed}kph{windDirection?.icon}
-        {windDirection?.name}
+        <AirIcon /> Wind {windSpeed}kph{windDirection.icon}
+        {windDirection.name}
       </Typography>
       <Typography>
         <CompressIcon /> Pressure {surfacePressure}hPa

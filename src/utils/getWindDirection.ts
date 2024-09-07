@@ -23,4 +23,6 @@ export const getWindDirection = (degrees: number) => {
   if (degrees >= 292.5 && degrees < 337.5) {
     return { name: "NW", icon: "↖️" };
   }
+
+  return { name: "Unknown", icon: "❓" };
 };

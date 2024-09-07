@@ -1,5 +1,7 @@
 import { SearchField } from "./components/SearchField";
 import { CurrentWeather } from "./components/CurrentWeather";
+import { DailyForecast } from "./components/DailyForecast";
+
 // LATER FOR DARKMODE!
 
 // import { ToggleMode } from "./components/ToggleTheme";
@@ -27,6 +29,7 @@ export const Dashboard = () => {
     <>
       <SearchField />
       <CurrentWeather />
+      <DailyForecast />
     </>
   );
 };
