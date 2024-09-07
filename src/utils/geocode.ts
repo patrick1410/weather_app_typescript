@@ -1,32 +1,14 @@
-// FIX THIS IS ALWAYS THE SAME...
-
-export const fetchCoordinates = async (placeName: string) => {
-  const url = `https://api.bigdatacloud.net/data/reverse-geocode-client?localityLanguage=en&locality=${encodeURIComponent(
-    placeName
-  )}`;
-
+export const getCoordinates = async (location: string) => {
   try {
-    const response = await fetch(url);
-    const data = await response.json();
+    const response = await fetch(
+      `https://geocoding-api.open-meteo.com/v1/search?name=${location}&count=10&language=en&format=json`
+    );
 
-    if (data && data.latitude && data.longitude) {
-      const { latitude, longitude } = data;
-      return { latitude, longitude };
-    } else {
-      return null; // No results found
+    if (response.ok) {
+      const location = await response.json();
+      return location;
     }
   } catch (error) {
-    console.error("Error fetching coordinates:", error);
-    return null;
-  }
-};
-
-// Example usage
-export const logCoordinates = async (placeName: string) => {
-  const coordinates = await fetchCoordinates(placeName);
-  if (coordinates) {
-    console.log(`Coordinates for ${placeName}:`, coordinates);
-  } else {
-    console.log(`No coordinates found for ${placeName}`);
+    console.log(error);
   }
 };

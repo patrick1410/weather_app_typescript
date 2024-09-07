@@ -1,3 +1,4 @@
+import { SearchField } from "./components/SearchField";
 import { CurrentWeather } from "./components/CurrentWeather";
 // LATER FOR DARKMODE!
 
@@ -24,6 +25,7 @@ import { CurrentWeather } from "./components/CurrentWeather";
 export const Dashboard = () => {
   return (
     <>
+      <SearchField />
       <CurrentWeather />
     </>
   );
