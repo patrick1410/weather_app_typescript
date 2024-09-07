@@ -1,8 +1,4 @@
-type WeatherIconEntry = {
-  code: number; // Weather code
-  name: string; // Name of the weather condition
-  icon: string; // Icon or image path
-};
+import { WeatherIconEntry } from "../types/weatherIconEntry";
 
 export const weatherIcons: WeatherIconEntry[] = [
   { code: 0, name: "Clear sky", icon: "☀️" }, // Clear sky
