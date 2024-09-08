@@ -4,11 +4,15 @@ import { SearchField } from "./components/SearchField";
 import { CurrentWeather } from "./components/CurrentWeather";
 import { DailyForecast } from "./components/DailyForecast";
 import { Card, CardContent } from "@mui/material";
+import { printCurrentPosition } from "./utils/printCurrentPosition";
 // import { getCoordinates } from "./utils/geocode";
 
+const coordinates = await printCurrentPosition();
+const { latitude: lat, longitude: lon } = coordinates.coords;
+
 const params = {
-  latitude: 52.374,
-  longitude: 4.8897,
+  latitude: lat,
+  longitude: lon,
   current: [
     "temperature_2m",
     "relative_humidity_2m",
