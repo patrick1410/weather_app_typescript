@@ -16,7 +16,7 @@ export const DailyItem: React.FC<DailyItemProps> = ({
   temperature2mMin,
 }) => {
   return (
-    <Card>
+    <Card sx={{ margin: "5px" }}>
       <CardContent>
         <Typography>{day}</Typography>
         <Typography>{icon}</Typography>

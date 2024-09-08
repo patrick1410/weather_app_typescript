@@ -21,7 +21,10 @@ import { Dashboard } from "./Dashboard";
 
 export const App = () => {
   return (
-    <Box className="app">
+    <Box
+      sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      className="app"
+    >
       <Dashboard />
     </Box>
   );
