@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Card, CardContent, Typography } from "@mui/material";
 import { WeatherData } from "../types/weatherData";
 import { weatherIcons } from "../utils/weatherIcons";
 import { WeatherIconEntry } from "../types/weatherIconEntry";
@@ -32,27 +32,29 @@ export const DailyForecast: React.FC<DailyForecastProps> = ({
   const days = time.map((day) => day.toDateString().slice(0, 3));
 
   return (
-    <Box>
-      <Typography variant="h3" fontSize="2rem">
-        Daily Forecast
-      </Typography>
-      <Box
-        sx={{
-          display: "flex",
-          textAlign: "center",
-        }}
-      >
-        {days.map((day, index) => (
-          <DailyItem
-            key={index}
-            day={day}
-            name={weatherInfo[index].name}
-            icon={weatherInfo[index].icon}
-            temperature2mMax={Math.round(temperature2mMax[index])}
-            temperature2mMin={Math.round(temperature2mMin[index])}
-          />
-        ))}
-      </Box>
-    </Box>
+    <Card>
+      <CardContent>
+        <Typography variant="h3" fontSize="2rem">
+          Daily Forecast
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            textAlign: "center",
+          }}
+        >
+          {days.map((day, index) => (
+            <DailyItem
+              key={index}
+              day={day}
+              name={weatherInfo[index].name}
+              icon={weatherInfo[index].icon}
+              temperature2mMax={Math.round(temperature2mMax[index])}
+              temperature2mMin={Math.round(temperature2mMin[index])}
+            />
+          ))}
+        </Box>
+      </CardContent>
+    </Card>
   );
 };

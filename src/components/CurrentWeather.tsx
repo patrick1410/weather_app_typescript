@@ -1,5 +1,5 @@
 // import { fetchWeatherApi } from "openmeteo";
-import { Box, Typography } from "@mui/material";
+import { Card, CardContent, Typography } from "@mui/material";
 import ArrowDownwardRoundedIcon from "@mui/icons-material/ArrowDownwardRounded";
 import ArrowUpwardRoundedIcon from "@mui/icons-material/ArrowUpwardRounded";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
@@ -18,11 +18,11 @@ interface CurrentWeatherProps {
 export const CurrentWeather: React.FC<CurrentWeatherProps> = ({
   weatherData,
 }) => {
-  const currentTemperature = weatherData.current.temperature2m.toFixed(1);
+  const currentTemperature = weatherData.current.temperature2m;
   const currentWeatherObj = weatherIcons[weatherData.current.weatherCode]; // Get the current weatherObj to get an icon and name
-  const todaysMaxTemp = weatherData.daily.temperature2mMax[0].toFixed(1);
-  const todaysMinTemp = weatherData.daily.temperature2mMin[0].toFixed(1);
-  const feelsLike = Number(weatherData.current.apparentTemperature).toFixed(1);
+  const todaysMaxTemp = weatherData.daily.temperature2mMax[0];
+  const todaysMinTemp = weatherData.daily.temperature2mMin[0];
+  const feelsLike = Number(weatherData.current.apparentTemperature);
   const humidity = weatherData.current.relativeHumidity2m;
   const windSpeed = Math.round(weatherData.current.windSpeed10m);
   const windDirection = getWindDirection(weatherData.current.windDirection10m); // Get the wind direction name and icon based on the degrees from the weather data.
@@ -44,31 +44,37 @@ export const CurrentWeather: React.FC<CurrentWeatherProps> = ({
   }, []); // Empty dependency array means this effect runs once on mount
 
   return (
-    <Box>
-      <Typography variant="h2" fontSize="2rem">
-        Current Weather
-      </Typography>
-      <Typography>{time}</Typography>
-      <Typography>
-        {currentWeatherObj.name} {currentWeatherObj.icon} {currentTemperature}°C
-      </Typography>
-      <Typography>Feels like {feelsLike}°C</Typography>
-      <Typography>
-        <ArrowUpwardRoundedIcon /> {todaysMaxTemp}°C
-      </Typography>
-      <Typography>
-        <ArrowDownwardRoundedIcon /> {todaysMinTemp}°C
-      </Typography>
-      <Typography>
-        <WaterDropIcon /> Humidity {humidity}%
-      </Typography>
-      <Typography>
-        <AirIcon /> Wind {windSpeed}kph{windDirection.icon}
-        {windDirection.name}
-      </Typography>
-      <Typography>
-        <CompressIcon /> Pressure {surfacePressure}hPa
-      </Typography>
-    </Box>
+    <Card>
+      <CardContent>
+        <Typography variant="h2" fontSize="2rem">
+          Current Weather
+        </Typography>
+        <Typography>{time}</Typography>
+        <Typography>
+          {currentWeatherObj.name} {currentWeatherObj.icon} {currentTemperature}
+          °C
+        </Typography>
+        <Typography>Feels like {feelsLike}°C</Typography>
+        <Typography>
+          <ArrowUpwardRoundedIcon sx={{ color: "#FF6347" }} /> {todaysMaxTemp}°C
+        </Typography>
+        <Typography>
+          <ArrowDownwardRoundedIcon sx={{ color: "#87CEEB" }} /> {todaysMinTemp}
+          °C
+        </Typography>
+        <Typography>
+          <WaterDropIcon sx={{ color: "#1E90FF" }} /> Humidity {humidity}%
+        </Typography>
+        <Typography>
+          <AirIcon sx={{ color: "#ADD8E6" }} /> Wind {windSpeed}kph
+          {windDirection.icon}
+          {windDirection.name}
+        </Typography>
+        <Typography>
+          <CompressIcon sx={{ color: "#FFA07A" }} /> Pressure {surfacePressure}
+          hPa
+        </Typography>
+      </CardContent>
+    </Card>
   );
 };

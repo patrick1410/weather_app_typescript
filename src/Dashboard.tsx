@@ -3,6 +3,7 @@ import { Header } from "./components/Header";
 import { SearchField } from "./components/SearchField";
 import { CurrentWeather } from "./components/CurrentWeather";
 import { DailyForecast } from "./components/DailyForecast";
+import { Card, CardContent } from "@mui/material";
 // import { getCoordinates } from "./utils/geocode";
 
 const params = {
@@ -103,11 +104,13 @@ const weatherData = {
 
 export const Dashboard = () => {
   return (
-    <>
-      <Header />
-      <SearchField />
-      <CurrentWeather weatherData={weatherData} />
-      <DailyForecast weatherData={weatherData} />
-    </>
+    <Card>
+      <CardContent>
+        <Header />
+        <SearchField />
+        <CurrentWeather weatherData={weatherData} />
+        <DailyForecast weatherData={weatherData} />
+      </CardContent>
+    </Card>
   );
 };
