@@ -1,9 +1,10 @@
+import "./Dashboard.css";
 import { fetchWeatherApi } from "openmeteo";
 import { Header } from "./components/Header";
 import { SearchField } from "./components/SearchField";
 import { CurrentWeather } from "./components/CurrentWeather";
 import { DailyForecast } from "./components/DailyForecast";
-import { Card, CardContent } from "@mui/material";
+import { Box, Card, CardContent } from "@mui/material";
 import { printCurrentPosition } from "./utils/printCurrentPosition";
 // import { getCoordinates } from "./utils/geocode";
 
@@ -108,13 +109,18 @@ const weatherData = {
 
 export const Dashboard = () => {
   return (
-    <Card>
-      <CardContent>
-        <Header />
-        <SearchField />
-        <CurrentWeather weatherData={weatherData} />
-        <DailyForecast weatherData={weatherData} />
-      </CardContent>
-    </Card>
+    <Box
+      sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      className="dashboard"
+    >
+      <Card>
+        <CardContent>
+          <Header />
+          <SearchField />
+          <CurrentWeather weatherData={weatherData} />
+          <DailyForecast weatherData={weatherData} />
+        </CardContent>
+      </Card>
+    </Box>
   );
 };
