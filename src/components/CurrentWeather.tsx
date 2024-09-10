@@ -1,9 +1,10 @@
-import { Card, CardContent, Typography } from "@mui/material";
+import { Card, CardContent, Typography, Box } from "@mui/material";
 import ArrowDownwardRoundedIcon from "@mui/icons-material/ArrowDownwardRounded";
 import ArrowUpwardRoundedIcon from "@mui/icons-material/ArrowUpwardRounded";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
 import AirIcon from "@mui/icons-material/Air";
 import CompressIcon from "@mui/icons-material/Compress";
+import RefreshRoundedIcon from "@mui/icons-material/RefreshRounded";
 import { weatherIcons } from "../utils/weatherIcons";
 import { getWindDirection } from "../utils/getWindDirection";
 import { WeatherData } from "../types/weatherData";
@@ -29,34 +30,50 @@ export const CurrentWeather: React.FC<CurrentWeatherProps> = ({
   return (
     <Card>
       <CardContent>
-        <Typography variant="h2" fontSize="2rem">
-          Current Weather
-        </Typography>
-        <Clock />
-        <Typography>
-          {currentWeatherObj.name} {currentWeatherObj.icon} {currentTemperature}
-          °C
-        </Typography>
-        <Typography>Feels like {feelsLike}°C</Typography>
-        <Typography>
-          <ArrowUpwardRoundedIcon sx={{ color: "#FF6347" }} /> {todaysMaxTemp}°C
-        </Typography>
-        <Typography>
-          <ArrowDownwardRoundedIcon sx={{ color: "#87CEEB" }} /> {todaysMinTemp}
-          °C
-        </Typography>
-        <Typography>
-          <WaterDropIcon sx={{ color: "#1E90FF" }} /> Humidity {humidity}%
-        </Typography>
-        <Typography>
-          <AirIcon sx={{ color: "#ADD8E6" }} /> Wind {windSpeed}kph{" "}
-          {windDirection.icon}
-          {windDirection.name}
-        </Typography>
-        <Typography>
-          <CompressIcon sx={{ color: "#FFA07A" }} /> Pressure {surfacePressure}
-          hPa
-        </Typography>
+        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Typography variant="h2" fontSize="2rem">
+            Current Weather
+          </Typography>
+          <RefreshRoundedIcon />
+          {/* for refresh btn? #E0FFFF */}
+        </Box>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          {/* delete alignItems? */}
+          <Box sx={{ width: "50%" }}>
+            <Clock />
+            <Typography>
+              {currentWeatherObj.name} {currentWeatherObj.icon}{" "}
+              {currentTemperature}
+              °C
+            </Typography>
+          </Box>
+          <Box sx={{ width: "50%" }}>
+            <Typography>Feels like {feelsLike}°C</Typography>
+            <Typography>
+              <ArrowUpwardRoundedIcon sx={{ color: "#FF6347" }} />{" "}
+              {todaysMaxTemp}
+              °C
+            </Typography>
+            <Typography>
+              <ArrowDownwardRoundedIcon sx={{ color: "#87CEEB" }} />{" "}
+              {todaysMinTemp}
+              °C
+            </Typography>
+            <Typography>
+              <WaterDropIcon sx={{ color: "#1E90FF" }} /> Humidity {humidity}%
+            </Typography>
+            <Typography>
+              <AirIcon sx={{ color: "#ADD8E6" }} /> Wind {windSpeed}kph{" "}
+              {windDirection.icon}
+              {windDirection.name}
+            </Typography>
+            <Typography>
+              <CompressIcon sx={{ color: "#FFA07A" }} /> Pressure{" "}
+              {surfacePressure}
+              hPa
+            </Typography>
+          </Box>
+        </Box>
       </CardContent>
     </Card>
   );
