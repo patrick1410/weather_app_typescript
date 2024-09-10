@@ -18,7 +18,7 @@ export const SearchField = () => {
           ),
           endAdornment: (
             <InputAdornment position="end">
-              <LocationSearchingIcon />
+              <LocationSearchingIcon sx={{ cursor: "pointer" }} />
             </InputAdornment>
           ),
         },
