@@ -34,7 +34,9 @@ export const CurrentWeather: React.FC<CurrentWeatherProps> = ({
           <Typography variant="h2" fontSize="2rem">
             Current Weather
           </Typography>
-          <RefreshRoundedIcon sx={{ cursor: "pointer" }} />
+          <RefreshRoundedIcon
+            sx={{ cursor: "pointer", color: "rgba(0, 0, 0, 0.54)" }}
+          />
           {/* for refresh btn? #E0FFFF */}
         </Box>
         <Box sx={{ display: "flex", alignItems: "center" }}>
