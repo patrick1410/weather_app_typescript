@@ -33,7 +33,7 @@ export const DailyForecast: React.FC<DailyForecastProps> = ({
 
   return (
     <Card>
-      <CardContent>
+      <CardContent sx={{ p: "1rem !important" }}>
         <Typography mb={1} variant="h3" fontSize="2rem">
           Daily Forecast
         </Typography>

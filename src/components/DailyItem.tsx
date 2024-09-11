@@ -16,8 +16,14 @@ export const DailyItem: React.FC<DailyItemProps> = ({
   temperature2mMin,
 }) => {
   return (
-    <Card sx={{ margin: "5px" }}>
-      <CardContent>
+    <Card sx={{ width: "calc(100%/7)", m: "5px" }}>
+      <CardContent
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
         <Typography>{day}</Typography>
         <Typography>{icon}</Typography>
         <Typography>{name}</Typography>
