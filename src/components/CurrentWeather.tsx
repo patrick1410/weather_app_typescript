@@ -18,7 +18,9 @@ export const CurrentWeather: React.FC<CurrentWeatherProps> = ({
   weatherData,
 }) => {
   const currentTemperature = Math.round(weatherData.current.temperature2m);
-  const currentWeatherObj = weatherIcons[weatherData.current.weatherCode]; // Get the current weatherObj to get an icon and name
+  const currentWeatherObj = weatherIcons.find(
+    (entry) => entry.code === weatherData.current.weatherCode
+  ); // Get the current weatherObj to get an icon and name
   const todaysMaxTemp = Math.round(weatherData.daily.temperature2mMax[0]);
   const todaysMinTemp = Math.round(weatherData.daily.temperature2mMin[0]);
   const feelsLike = Number(Math.round(weatherData.current.apparentTemperature));
@@ -35,6 +37,7 @@ export const CurrentWeather: React.FC<CurrentWeatherProps> = ({
             Current Weather
           </Typography>
           <RefreshRoundedIcon
+            onClick={() => console.log("click!")}
             sx={{ cursor: "pointer", color: "rgba(0, 0, 0, 0.54)" }}
           />
           {/* for refresh btn? #E0FFFF */}
@@ -43,23 +46,22 @@ export const CurrentWeather: React.FC<CurrentWeatherProps> = ({
           {/* delete alignItems? */}
           <Box sx={{ width: "50%" }}>
             <Clock />
-            <Typography>
-              {currentWeatherObj.name} {currentWeatherObj.icon}{" "}
-              {currentTemperature}
-              °C
-            </Typography>
+            <Box sx={{ display: "flex", flexDirection: "column" }}>
+              <Typography>
+                {currentWeatherObj?.icon} {currentTemperature}°C
+              </Typography>
+              <Typography>{currentWeatherObj?.name}</Typography>
+            </Box>
           </Box>
           <Box sx={{ width: "50%" }}>
             <Typography>Feels like {feelsLike}°C</Typography>
             <Typography>
               <ArrowUpwardRoundedIcon sx={{ color: "#FF6347" }} />{" "}
-              {todaysMaxTemp}
-              °C
+              {todaysMaxTemp}°C
             </Typography>
             <Typography>
               <ArrowDownwardRoundedIcon sx={{ color: "#87CEEB" }} />{" "}
-              {todaysMinTemp}
-              °C
+              {todaysMinTemp}°C
             </Typography>
             <Typography>
               <WaterDropIcon sx={{ color: "#1E90FF" }} /> Humidity {humidity}%

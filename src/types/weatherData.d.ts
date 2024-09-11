@@ -1,7 +1,7 @@
 // types.d.ts or a relevant types file
 export interface WeatherData {
   current: {
-    time: Date;
+    // time: Date;
     temperature2m: number;
     relativeHumidity2m: number;
     apparentTemperature: number;

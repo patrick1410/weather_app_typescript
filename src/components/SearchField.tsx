@@ -18,7 +18,10 @@ export const SearchField = () => {
           ),
           endAdornment: (
             <InputAdornment position="end">
-              <LocationSearchingIcon sx={{ cursor: "pointer" }} />
+              <LocationSearchingIcon
+                onClick={() => console.log("click")}
+                sx={{ cursor: "pointer" }}
+              />
             </InputAdornment>
           ),
         },
