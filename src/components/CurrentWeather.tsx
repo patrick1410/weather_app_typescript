@@ -12,10 +12,12 @@ import { Clock } from "./Clock";
 
 interface CurrentWeatherProps {
   weatherData: WeatherData;
+  handleRefresh: () => void;
 }
 
 export const CurrentWeather: React.FC<CurrentWeatherProps> = ({
   weatherData,
+  handleRefresh,
 }) => {
   const currentTemperature = Math.round(weatherData.current.temperature2m);
   const currentWeatherObj = weatherIcons.find(
@@ -37,7 +39,7 @@ export const CurrentWeather: React.FC<CurrentWeatherProps> = ({
             Current Weather
           </Typography>
           <RefreshRoundedIcon
-            onClick={() => console.log("click!")}
+            onClick={handleRefresh}
             sx={{ cursor: "pointer", color: "rgba(0, 0, 0, 0.54)" }}
           />
           {/* for refresh btn? #E0FFFF */}

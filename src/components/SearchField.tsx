@@ -2,7 +2,11 @@ import { TextField, InputAdornment, Box } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
 
-export const SearchField = () => {
+interface SearchFieldProps {
+  handleLocation: () => void;
+}
+
+export const SearchField: React.FC<SearchFieldProps> = ({ handleLocation }) => {
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
       <TextField
@@ -20,7 +24,7 @@ export const SearchField = () => {
             endAdornment: (
               <InputAdornment position="end">
                 <LocationSearchingIcon
-                  onClick={() => console.log("click")}
+                  onClick={handleLocation}
                   sx={{ cursor: "pointer" }}
                 />
               </InputAdornment>
