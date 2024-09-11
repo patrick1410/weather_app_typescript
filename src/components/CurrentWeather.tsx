@@ -21,9 +21,9 @@ export const CurrentWeather: React.FC<CurrentWeatherProps> = ({
   const currentWeatherObj = weatherIcons.find(
     (entry) => entry.code === weatherData.current.weatherCode
   ); // Get the current weatherObj to get an icon and name
+  const feelsLike = Number(Math.round(weatherData.current.apparentTemperature));
   const todaysMaxTemp = Math.round(weatherData.daily.temperature2mMax[0]);
   const todaysMinTemp = Math.round(weatherData.daily.temperature2mMin[0]);
-  const feelsLike = Number(Math.round(weatherData.current.apparentTemperature));
   const humidity = weatherData.current.relativeHumidity2m;
   const windSpeed = Math.round(weatherData.current.windSpeed10m);
   const windDirection = getWindDirection(weatherData.current.windDirection10m); // Get the wind direction name and icon based on the degrees from the weather data.
