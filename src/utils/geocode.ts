@@ -1,4 +1,4 @@
-export const getCoordinates = async (location: string) => {
+export const getLocation = async (location: string) => {
   try {
     const response = await fetch(
       `https://geocoding-api.open-meteo.com/v1/search?name=${location}&count=10&language=en&format=json`
