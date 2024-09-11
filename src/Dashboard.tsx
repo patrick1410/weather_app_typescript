@@ -31,6 +31,8 @@ export const Dashboard = () => {
     fetchCoordinates();
   }, []);
 
+  console.log("lat:", lat, "long:", long);
+
   const fetchData = async () => {
     if (lat === undefined || long === undefined) {
       return;
