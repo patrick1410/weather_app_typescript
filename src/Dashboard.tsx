@@ -160,10 +160,20 @@ export const Dashboard = () => {
 
   return (
     <Box
-      sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
       className="dashboard"
     >
-      <Card sx={{ boxShadow: "0px 0px 8px #ddd" }}>
+      <Card
+        sx={{
+          all: "unset",
+          boxShadow: "0px 0px 8px #ddd",
+          borderRadius: "15px",
+        }}
+      >
         <CardContent>
           <Header />
           <SearchBar

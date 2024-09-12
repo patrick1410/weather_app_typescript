@@ -5,6 +5,11 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Change BG */
+body {
+  background: url(../public/clouded-weather.svg);
+}
+
 .dashboard {
   height: 100vh;
 }

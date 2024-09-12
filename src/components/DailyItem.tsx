@@ -17,7 +17,13 @@ export const DailyItem: React.FC<DailyItemProps> = ({
 }) => {
   return (
     <Card
-      sx={{ width: "calc(100%/7)", m: "5px", boxShadow: "0px 0px 8px #ddd" }}
+      sx={{
+        all: "unset",
+        width: "calc(100%/7)",
+        m: "10px",
+        boxShadow: "0px 0px 8px #ddd",
+        borderRadius: "15px",
+      }}
     >
       <CardContent
         sx={{
