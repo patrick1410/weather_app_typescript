@@ -1,7 +1,5 @@
-// types.d.ts or a relevant types file
-export interface WeatherData {
+export type WeatherData = {
   current: {
-    // time: Date;
     temperature2m: number;
     relativeHumidity2m: number;
     apparentTemperature: number;
@@ -16,4 +14,4 @@ export interface WeatherData {
     temperature2mMax: number[];
     temperature2mMin: number[];
   };
-}
+};

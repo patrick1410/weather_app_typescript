@@ -1,15 +1,19 @@
 import "./Dashboard.css";
 import { fetchWeatherApi } from "openmeteo";
 import { Header } from "./components/Header";
-import { SearchField } from "./components/SearchField";
+// import { SearchField } from "./components/SearchField";
 import { CurrentWeather } from "./components/CurrentWeather";
 import { DailyForecast } from "./components/DailyForecast";
 import { Box, Card, CardContent } from "@mui/material";
 import { getCoordinates } from "./utils/printLocation";
 import { useEffect, useState } from "react";
 import { WeatherData } from "./types/weatherData";
+import { SearchBar } from "./components/SearchBar";
+import { SearchResultsList } from "./components/SearchResultsList";
+import { SearchResultType } from "./types/searchResultType";
 
 export const Dashboard = () => {
+  const [results, setResults] = useState<SearchResultType[]>([]);
   const [lat, setLat] = useState<number | undefined>(undefined);
   const [long, setLong] = useState<number | undefined>(undefined);
   const [weatherData, setWeatherData] = useState<WeatherData | undefined>(
@@ -144,7 +148,10 @@ export const Dashboard = () => {
       <Card>
         <CardContent>
           <Header />
-          <SearchField handleLocation={handleLocation} />
+          <SearchBar setResults={setResults} handleLocation={handleLocation} />
+          {results && results.length > 0 && (
+            <SearchResultsList results={results} />
+          )}
           <CurrentWeather
             weatherData={weatherData}
             handleRefresh={handleRefresh}
