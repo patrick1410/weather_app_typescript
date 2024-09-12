@@ -73,11 +73,14 @@ export const Dashboard = () => {
 
       // // Attributes for timezone and location
       const utcOffsetSeconds = response.utcOffsetSeconds();
-
       const current = response.current()!;
       const daily = response.daily()!;
 
-      const place = await reverseGeocode(lat, long);
+      // Only call reverseGeocode if placeName is not already set
+      if (!placeName) {
+        const place = await reverseGeocode(lat, long);
+        setPlaceName(place);
+      }
 
       const newWeatherData = {
         current: {
@@ -102,10 +105,6 @@ export const Dashboard = () => {
       };
 
       setWeatherData(newWeatherData);
-
-      if (!placeName) {
-        setPlaceName(place);
-      }
     } catch (error) {
       console.log("Error fetching weather data:", error);
     }
@@ -129,14 +128,16 @@ export const Dashboard = () => {
   const handleLocation = async () => {
     const coordinatesObj = await getCoordinates();
 
-    const place = await reverseGeocode(
-      coordinatesObj.latitude,
-      coordinatesObj.longitude
-    );
+    if (coordinatesObj.latitude !== lat || coordinatesObj.longitude !== long) {
+      const place = await reverseGeocode(
+        coordinatesObj.latitude,
+        coordinatesObj.longitude
+      );
 
-    setLat(coordinatesObj.latitude);
-    setLong(coordinatesObj.longitude);
-    setPlaceName(place);
+      setLat(coordinatesObj.latitude);
+      setLong(coordinatesObj.longitude);
+      setPlaceName(place);
+    }
   };
 
   // Funtion to select the place from dropdown and set them!
