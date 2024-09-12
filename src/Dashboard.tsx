@@ -169,9 +169,9 @@ export const Dashboard = () => {
     >
       <Card
         sx={{
-          all: "unset",
           boxShadow: "0px 0px 8px #ddd",
           borderRadius: "15px",
+          background: "none",
         }}
       >
         <CardContent>

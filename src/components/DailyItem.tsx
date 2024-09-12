@@ -18,7 +18,7 @@ export const DailyItem: React.FC<DailyItemProps> = ({
   return (
     <Card
       sx={{
-        all: "unset",
+        background: "none",
         width: "calc(100%/7)",
         m: "10px",
         boxShadow: "0px 0px 8px #ddd",

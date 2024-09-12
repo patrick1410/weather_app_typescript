@@ -37,15 +37,17 @@ export const CurrentWeather: React.FC<CurrentWeatherProps> = ({
   return (
     <Card
       sx={{
-        all: "unset",
+        background: "none",
+        overflow: "visible",
+        boxShadow: "0px 0px 8px #ddd",
+        borderRadius: "15px",
       }}
     >
       <CardContent
         sx={{
-          boxShadow: "0px 0px 8px #ddd",
           mt: "1.25rem",
           mb: "1.25rem",
-          borderRadius: "15px",
+          p: "1rem !important",
         }}
       >
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
