@@ -1,5 +1,6 @@
 import "./css/SearchResult.css";
 import { SearchResultType } from "../types/searchResultType";
+import ReactCountryFlag from "react-country-flag";
 
 type SearchResultProps = {
   result: SearchResultType;
@@ -12,12 +13,21 @@ export const SearchResult: React.FC<SearchResultProps> = ({
 }) => {
   return (
     <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+      }}
       className="search-result"
       onClick={() =>
         handlePlace(result.latitude, result.longitude, result.name)
       }
     >
-      {result.country_code}, {result.name}
+      <ReactCountryFlag
+        style={{ marginRight: "0.5rem" }}
+        svg
+        countryCode={result.country_code}
+      />{" "}
+      {result.name}
       {result.admin1 ? "," : ""} {result.admin1}
     </div>
   );
