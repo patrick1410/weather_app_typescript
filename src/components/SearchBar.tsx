@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
 import { Box } from "@mui/material";
 import { SearchResultType } from "../types/searchResultType";
-
+import debounce from "lodash/debounce";
 import "./css/SearchBar.css";
 
 type SearchBarProps = {
@@ -33,13 +33,16 @@ export const SearchBar: React.FC<SearchBarProps> = ({
     }
   };
 
+  // Create a debounced version of fetchData with a 300ms delay
+  const debouncedFetchData = useCallback(debounce(fetchData, 300), []);
+
   const handleChange = (value: string) => {
     setInput(value);
     // Close the results list if the input is empty
     if (value.trim() === "") {
       setResults([]); // Clear results
     } else {
-      fetchData(value); // Fetch new results
+      debouncedFetchData(value); // Use debounced fetch
     }
   };
 

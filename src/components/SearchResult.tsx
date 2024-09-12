@@ -1,6 +1,15 @@
 import "./css/SearchResult.css";
+import { SearchResultType } from "../types/searchResultType";
 
-export const SearchResult = ({ result, handlePlace }) => {
+type SearchResultProps = {
+  result: SearchResultType;
+  handlePlace: (lat: number, long: number, name: string) => void; // Update the return type to void
+};
+
+export const SearchResult: React.FC<SearchResultProps> = ({
+  result,
+  handlePlace,
+}) => {
   return (
     <div
       className="search-result"

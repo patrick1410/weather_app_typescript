@@ -13,7 +13,7 @@ import { Clock } from "./Clock";
 interface CurrentWeatherProps {
   weatherData: WeatherData;
   handleRefresh: () => void;
-  placeName: string;
+  placeName?: string;
 }
 
 export const CurrentWeather: React.FC<CurrentWeatherProps> = ({
