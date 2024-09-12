@@ -14,7 +14,6 @@ export const SearchResultsList: React.FC<SearchResultsListProps> = ({
   return (
     <div className="results-list">
       {results.map((result) => {
-        console.log(result);
         return (
           <SearchResult
             handlePlace={handlePlace}

@@ -32,7 +32,7 @@ export const DailyForecast: React.FC<DailyForecastProps> = ({
   const days = time.map((day) => day.toDateString().slice(0, 3));
 
   return (
-    <Card>
+    <Card sx={{ boxShadow: "0px 0px 8px #ddd" }}>
       <CardContent sx={{ p: "1rem !important" }}>
         <Typography mb={1} variant="h3" fontSize="2rem">
           Daily Forecast

@@ -35,7 +35,13 @@ export const CurrentWeather: React.FC<CurrentWeatherProps> = ({
   const surfacePressure = Math.round(weatherData.current.surfacePressure);
 
   return (
-    <Card sx={{ mt: "1.25rem", mb: "1.25rem" }}>
+    <Card
+      sx={{
+        mt: "1.25rem",
+        mb: "1.25rem",
+        boxShadow: "0px 0px 8px #ddd",
+      }}
+    >
       <CardContent>
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography variant="h2" fontSize="2rem">

@@ -16,7 +16,9 @@ export const DailyItem: React.FC<DailyItemProps> = ({
   temperature2mMin,
 }) => {
   return (
-    <Card sx={{ width: "calc(100%/7)", m: "5px" }}>
+    <Card
+      sx={{ width: "calc(100%/7)", m: "5px", boxShadow: "0px 0px 8px #ddd" }}
+    >
       <CardContent
         sx={{
           display: "flex",

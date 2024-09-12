@@ -19,6 +19,7 @@ export const Dashboard = () => {
   const [weatherData, setWeatherData] = useState<WeatherData | undefined>(
     undefined
   );
+  const [input, setInput] = useState<string>("");
   const [placeName, setPlaceName] = useState<string | undefined>("");
 
   useEffect(() => {
@@ -143,6 +144,7 @@ export const Dashboard = () => {
     setLat(lat);
     setLong(long);
     setPlaceName(place);
+    setInput("");
     setResults([]);
   };
 
@@ -151,7 +153,6 @@ export const Dashboard = () => {
     return (
       <>
         <div>Loading weather data...</div>
-        {/* <button onClick={handleClick}>retrieve data manually</button> */}
       </>
     );
   }
@@ -161,10 +162,15 @@ export const Dashboard = () => {
       sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
       className="dashboard"
     >
-      <Card>
+      <Card sx={{ boxShadow: "0px 0px 8px #ddd" }}>
         <CardContent>
           <Header />
-          <SearchBar setResults={setResults} handleLocation={handleLocation} />
+          <SearchBar
+            input={input}
+            setInput={setInput}
+            setResults={setResults}
+            handleLocation={handleLocation}
+          />
           {results && results.length > 0 && (
             <SearchResultsList handlePlace={handlePlace} results={results} />
           )}

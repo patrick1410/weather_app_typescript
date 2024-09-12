@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useCallback } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
 import { Box } from "@mui/material";
@@ -9,14 +9,16 @@ import "./css/SearchBar.css";
 type SearchBarProps = {
   setResults: (results: SearchResultType[]) => void;
   handleLocation: () => void;
+  input: string;
+  setInput: (value: string) => void;
 };
 
 export const SearchBar: React.FC<SearchBarProps> = ({
   setResults,
   handleLocation,
+  input,
+  setInput,
 }) => {
-  const [input, setInput] = useState("");
-
   const fetchData = async (value: string) => {
     try {
       const response = await fetch(
@@ -25,9 +27,8 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 
       const data = await response.json();
       if (data.results) {
-        setResults(data.results.map((result: SearchResultType[]) => result));
+        setResults(data.results.map((result: SearchResultType) => result));
       }
-      console.log(data.results);
     } catch (error) {
       console.log(error);
     }
