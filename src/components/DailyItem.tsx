@@ -23,6 +23,8 @@ export const DailyItem: React.FC<DailyItemProps> = ({
         m: "10px",
         boxShadow: "0px 0px 8px #ddd",
         borderRadius: "15px",
+        display: "flex",
+        justifyContent: "center",
       }}
     >
       <CardContent
@@ -30,6 +32,7 @@ export const DailyItem: React.FC<DailyItemProps> = ({
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          justifyContent: "center",
         }}
       >
         <Typography>{day}</Typography>
