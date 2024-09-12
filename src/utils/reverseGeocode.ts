@@ -6,7 +6,6 @@ export const reverseGeocode = async (lat: number, long: number) => {
     const data = await response.json();
 
     // Check if the data contains an address
-    console.log(data.address);
     return `${
       data.address.city ||
       data.address.town ||
