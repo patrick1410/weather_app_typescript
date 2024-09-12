@@ -13,13 +13,16 @@ import { Clock } from "./Clock";
 interface CurrentWeatherProps {
   weatherData: WeatherData;
   handleRefresh: () => void;
+  placeName: string;
 }
 
 export const CurrentWeather: React.FC<CurrentWeatherProps> = ({
   weatherData,
   handleRefresh,
+  placeName,
 }) => {
   const currentTemperature = Math.round(weatherData.current.temperature2m);
+  const currentPlaceName = placeName;
   const currentWeatherObj = weatherIcons.find(
     (entry) => entry.code === weatherData.current.weatherCode
   ); // Get the current weatherObj to get an icon and name
@@ -48,6 +51,7 @@ export const CurrentWeather: React.FC<CurrentWeatherProps> = ({
           {/* delete alignItems? */}
           <Box sx={{ width: "50%" }}>
             <Clock />
+            <Typography>{currentPlaceName}</Typography>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
               <Typography>
                 {currentWeatherObj?.icon} {currentTemperature}°C

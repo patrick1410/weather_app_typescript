@@ -18,6 +18,7 @@ export const Dashboard = () => {
   const [weatherData, setWeatherData] = useState<WeatherData | undefined>(
     undefined
   );
+  const [placeName, setPlaceName] = useState<string>("");
 
   useEffect(() => {
     // Fetch coordinates
@@ -127,6 +128,13 @@ export const Dashboard = () => {
     console.log("long", coordinatesObj.longitude);
   };
 
+  const handlePlace = (lat: number, long: number, place: string) => {
+    setLat(lat);
+    setLong(long);
+    setPlaceName(place);
+    setResults([]);
+  };
+
   // console.log(handleClick());
 
   if (!weatherData) {
@@ -149,11 +157,12 @@ export const Dashboard = () => {
           <Header />
           <SearchBar setResults={setResults} handleLocation={handleLocation} />
           {results && results.length > 0 && (
-            <SearchResultsList results={results} />
+            <SearchResultsList handlePlace={handlePlace} results={results} />
           )}
           <CurrentWeather
             weatherData={weatherData}
             handleRefresh={handleRefresh}
+            placeName={placeName}
           />
           <DailyForecast weatherData={weatherData} />
         </CardContent>
