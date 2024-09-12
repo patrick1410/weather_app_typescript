@@ -7,7 +7,7 @@
 
 /* Change BG */
 body {
-  background: url(../public/clouded-weather.svg);
+  background: url(../public/clouded-weather.svg) no-repeat center center;
 }
 
 .dashboard {
