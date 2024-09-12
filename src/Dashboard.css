@@ -7,9 +7,19 @@
 
 /* Change BG */
 body {
-  background: url(../public/clouded-weather.svg) no-repeat center center;
+  background: url(/bg.jpg) no-repeat center center;
 }
 
 .dashboard {
   height: 100vh;
+}
+
+p {
+  color: #f0f8ff;
+}
+
+h1,
+h2,
+h3 {
+  color: #f0f8ff;
 }
