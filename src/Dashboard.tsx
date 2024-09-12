@@ -10,6 +10,7 @@ import { WeatherData } from "./types/weatherData";
 import { SearchBar } from "./components/SearchBar";
 import { SearchResultsList } from "./components/SearchResultsList";
 import { SearchResultType } from "./types/searchResultType";
+import { reverseGeocode } from "./utils/reverseGeocode";
 
 export const Dashboard = () => {
   const [results, setResults] = useState<SearchResultType[]>([]);
@@ -18,7 +19,7 @@ export const Dashboard = () => {
   const [weatherData, setWeatherData] = useState<WeatherData | undefined>(
     undefined
   );
-  const [placeName, setPlaceName] = useState<string>("");
+  const [placeName, setPlaceName] = useState<string | undefined>("");
 
   useEffect(() => {
     // Fetch coordinates
@@ -34,8 +35,6 @@ export const Dashboard = () => {
 
     fetchCoordinates();
   }, []);
-
-  console.log("lat:", lat, "long:", long);
 
   const fetchData = async () => {
     if (lat === undefined || long === undefined) {
@@ -77,6 +76,8 @@ export const Dashboard = () => {
       const current = response.current()!;
       const daily = response.daily()!;
 
+      const place = await reverseGeocode(lat, long);
+
       const newWeatherData = {
         current: {
           temperature2m: current.variables(0)!.value(),
@@ -100,6 +101,10 @@ export const Dashboard = () => {
       };
 
       setWeatherData(newWeatherData);
+
+      if (!placeName) {
+        setPlaceName(place);
+      }
     } catch (error) {
       console.log("Error fetching weather data:", error);
     }
@@ -119,23 +124,27 @@ export const Dashboard = () => {
     fetchData();
   };
 
-  // function to retrieve coordinates and set them (for location icon!)
+  // Function to retrieve coordinates and set them (for location icon!)
   const handleLocation = async () => {
     const coordinatesObj = await getCoordinates();
+
+    const place = await reverseGeocode(
+      coordinatesObj.latitude,
+      coordinatesObj.longitude
+    );
+
     setLat(coordinatesObj.latitude);
     setLong(coordinatesObj.longitude);
-    console.log("lat:", coordinatesObj.latitude);
-    console.log("long", coordinatesObj.longitude);
+    setPlaceName(place);
   };
 
+  // Funtion to select the place from dropdown and set them!
   const handlePlace = (lat: number, long: number, place: string) => {
     setLat(lat);
     setLong(long);
     setPlaceName(place);
     setResults([]);
   };
-
-  // console.log(handleClick());
 
   if (!weatherData) {
     // Show a loading state while data is being fetched
