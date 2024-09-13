@@ -5,13 +5,33 @@
   font-family: "Open Sans", sans-serif;
 }
 
-/* CHANGE LATER? */
+html,
+body {
+  height: 100%;
+  overflow: auto; /* Ensure scrolling is enabled */
+}
+
 body {
   background: url(/bg.jpg) no-repeat center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .dashboard {
-  height: 100vh;
+  width: 100%;
+}
+
+.dashboard-card {
+  margin: 0.5rem;
 }
 
 p {

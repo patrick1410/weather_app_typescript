@@ -169,10 +169,12 @@ export const Dashboard = () => {
     >
       <Card
         sx={{
+          width: { xs: "100%", md: "auto" },
           boxShadow: "0px 0px 8px #ddd",
           borderRadius: "15px",
           background: "none",
         }}
+        className="dashboard-card"
       >
         <CardContent>
           <Header />

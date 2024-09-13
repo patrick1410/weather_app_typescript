@@ -19,7 +19,7 @@ export const DailyItem: React.FC<DailyItemProps> = ({
     <Card
       sx={{
         background: "none",
-        width: "calc(100%/7)",
+        width: { xs: "100%", md: "calc(100%/7)" },
         m: "10px",
         boxShadow: "0px 0px 8px #ddd",
         borderRadius: "15px",
@@ -30,14 +30,15 @@ export const DailyItem: React.FC<DailyItemProps> = ({
       <CardContent
         sx={{
           display: "flex",
-          flexDirection: "column",
+          flexDirection: { xs: "row", md: "column" },
           alignItems: "center",
           justifyContent: "center",
+          p: "1rem !important",
         }}
       >
-        <Typography>{day}</Typography>
-        <Typography>{icon}</Typography>
-        <Typography>{name}</Typography>
+        <Typography sx={{ mr: { xs: 0.5, md: 0 } }}>{day}</Typography>
+        <Typography sx={{ mr: { xs: 0.5, md: 0 } }}>{icon}</Typography>
+        <Typography sx={{ mr: { xs: 0.5, md: 0 } }}>{name}</Typography>
         <Typography>
           {temperature2mMax}°C/{temperature2mMin}°C
         </Typography>

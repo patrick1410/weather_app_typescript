@@ -51,7 +51,9 @@ export const DailyForecast: React.FC<DailyForecastProps> = ({
         <Box
           sx={{
             display: "flex",
+            flexDirection: { xs: "column", md: "row" },
             textAlign: "center",
+            alignItems: { xs: "center", md: "stretch" },
           }}
         >
           {days.map((day, index) => (

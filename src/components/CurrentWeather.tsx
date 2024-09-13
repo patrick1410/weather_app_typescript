@@ -59,8 +59,15 @@ export const CurrentWeather: React.FC<CurrentWeatherProps> = ({
             sx={{ cursor: "pointer", color: "#f0f8ff" }}
           />
         </Box>
-        <Box sx={{ display: "flex", alignItems: "center" }}>
-          <Box sx={{ width: "50%" }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            alignItems: "center",
+            textAlign: { xs: "center", sm: "start" },
+          }}
+        >
+          <Box sx={{ width: "100%", m: { xs: 1, sm: 0 } }}>
             <Clock />
             <Typography>{currentPlaceName}</Typography>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -70,7 +77,7 @@ export const CurrentWeather: React.FC<CurrentWeatherProps> = ({
               <Typography>{currentWeatherObj?.name}</Typography>
             </Box>
           </Box>
-          <Box sx={{ width: "50%" }}>
+          <Box sx={{ width: "100%", m: { xs: 0, sm: 1 } }}>
             <Typography>Feels like {feelsLike}°C</Typography>
             <Typography>
               <ArrowUpwardRoundedIcon sx={{ color: "#FF6347" }} />{" "}
