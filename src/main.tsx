@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { Dashboard } from "./Dashboard.tsx";
+import { Dashboard } from "./components/Dashboard";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme({

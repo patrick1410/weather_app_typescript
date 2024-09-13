@@ -26,7 +26,7 @@ export const weatherIcons: WeatherIconEntry[] = [
   { code: 82, name: "Violent rain showers", icon: "🌧️" },
   { code: 85, name: "Slight snow showers", icon: "❄️" },
   { code: 86, name: "Heavy snow showers", icon: "❄️" },
-  { code: 95, name: "Thunderstorm (slight or moderate)", icon: "⛈️" },
+  { code: 95, name: "Thunderstorm", icon: "⛈️" },
   { code: 96, name: "Thunderstorm with slight hail", icon: "⛈️" },
   { code: 99, name: "Thunderstorm with heavy hail", icon: "⛈️" },
 ];
