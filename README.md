@@ -11,7 +11,15 @@ npm run dev
 
 ## Description
 
-Description
+This app uses the Weather Forecast API and Geocoding API from Open-Meteo. It provides:
+
+- Current weather conditions
+
+- Weekly weather forecast
+
+- Local time based on your GPS location
+
+You can also search for and set different locations to see weather and time information for those places.
 
 [Click here to have a look at the app](/)
 
@@ -23,8 +31,12 @@ Description
 <img align="left" alt="Git" width="24px" src="https://raw.githubusercontent.com/github/explore/main/topics/git/git.png" />
 <br/>
 
-## App Stories
+## App Features
 
 The app allows users to:
 
--
+- View the current weather
+
+- View weekly forecast
+
+- View local time based on location
