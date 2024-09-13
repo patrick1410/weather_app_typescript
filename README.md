@@ -21,7 +21,7 @@ This app uses the Weather Forecast API and Geocoding API from Open-Meteo. It pro
 
 You can also search for and set different locations to see weather and time information for those places.
 
-[Click here to have a look at the app](/)
+[Live Demo](https://weather-app-rts.netlify.app/)
 
 ### Technologies Used
 
