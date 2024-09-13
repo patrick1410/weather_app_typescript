@@ -23,6 +23,7 @@ export const Dashboard = () => {
   );
   const [input, setInput] = useState<string>("");
   const [placeName, setPlaceName] = useState<string | undefined>("");
+  const [timezone, setTimezone] = useState<string>("UTC");
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -78,8 +79,11 @@ export const Dashboard = () => {
       // Process first location
       const response = responses[0];
 
-      // // Attributes for timezone and location
+      // Attributes for timezone and location
       const utcOffsetSeconds = response.utcOffsetSeconds();
+      const timezone = response.timezone();
+      setTimezone(timezone || "UTC");
+
       const current = response.current()!;
       const daily = response.daily()!;
 
@@ -207,6 +211,7 @@ export const Dashboard = () => {
             <SearchResultsList handlePlace={handlePlace} results={results} />
           )}
           <CurrentWeather
+            timezone={timezone}
             weatherData={weatherData}
             handleRefresh={handleRefresh}
             placeName={placeName}

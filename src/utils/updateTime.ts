@@ -1,9 +1,10 @@
-export const updateTime = () => {
-  let time = new Date();
+import { format, toZonedTime } from "date-fns-tz";
 
-  let hour: string = String(time.getHours()).padStart(2, "0");
-  let minute: string = String(time.getMinutes()).padStart(2, "0");
-  let second: string = String(time.getSeconds()).padStart(2, "0");
-
-  return `${hour}:${minute}:${second}`;
+export const updateTime = (timezone: string) => {
+  const currentDateTime = new Date(); // Current date and time in local timezone
+  const zonedDateTime = toZonedTime(currentDateTime, timezone); // Convert to the specified timezone
+  const formattedTime = format(zonedDateTime, "HH:mm:ss", {
+    timeZone: timezone,
+  }); // Format time in the specified timezone
+  return formattedTime;
 };

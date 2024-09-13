@@ -11,12 +11,14 @@ import { WeatherData } from "../types/weatherData";
 import { Clock } from "./Clock";
 
 interface CurrentWeatherProps {
+  timezone: string | "UTC";
   weatherData: WeatherData;
   handleRefresh: () => void;
   placeName?: string;
 }
 
 export const CurrentWeather: React.FC<CurrentWeatherProps> = ({
+  timezone,
   weatherData,
   handleRefresh,
   placeName,
@@ -68,7 +70,7 @@ export const CurrentWeather: React.FC<CurrentWeatherProps> = ({
           }}
         >
           <Box sx={{ width: "100%", m: { xs: 1, sm: 0 } }}>
-            <Clock />
+            <Clock timezone={timezone} />
             <Typography>{currentPlaceName}</Typography>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
               <Typography>
