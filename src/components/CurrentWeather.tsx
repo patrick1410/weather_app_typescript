@@ -52,7 +52,13 @@ export const CurrentWeather: React.FC<CurrentWeatherProps> = ({
           p: "1rem !important",
         }}
       >
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
           <Typography variant="h2" fontSize="2rem">
             Current Weather
           </Typography>
