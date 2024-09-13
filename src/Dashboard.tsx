@@ -3,6 +3,7 @@ import { fetchWeatherApi } from "openmeteo";
 import { Header } from "./components/Header";
 import { CurrentWeather } from "./components/CurrentWeather";
 import { DailyForecast } from "./components/DailyForecast";
+import { Footer } from "./components/Footer";
 import { Box, Card, CardContent } from "@mui/material";
 import { getCoordinates } from "./utils/printLocation";
 import { useEffect, useState } from "react";
@@ -199,7 +200,7 @@ export const Dashboard = () => {
         }}
         className="dashboard-card"
       >
-        <CardContent>
+        <CardContent sx={{ padding: "1rem !important" }}>
           <Header />
           <SearchBar
             input={input}
@@ -217,6 +218,7 @@ export const Dashboard = () => {
             placeName={placeName}
           />
           <DailyForecast weatherData={weatherData} />
+          <Footer />
         </CardContent>
       </Card>
     </Box>

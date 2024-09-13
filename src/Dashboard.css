@@ -44,3 +44,22 @@ h3 {
   color: rgba(240, 248, 255, 0.8);
   font-weight: 400 !important;
 }
+
+/* Icon styles */
+.github-icon,
+.linkedin-icon {
+  color: rgba(240, 248, 255, 0.5) !important;
+  width: 32px !important;
+  height: 32px !important;
+  margin: 10px 6px 6px 10px !important;
+}
+
+.linkedin-icon:hover {
+  color: #0a66c2 !important;
+  transition: 0.3s ease-in;
+}
+
+.github-icon:hover {
+  color: #e8e8e8 !important;
+  transition: 0.3s ease-in;
+}
