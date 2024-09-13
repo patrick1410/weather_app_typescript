@@ -1,9 +1,9 @@
-import "./Dashboard.css";
+import "./components/css/Dashboard.css";
 import { fetchWeatherApi } from "openmeteo";
-import { Header } from "./components/Header";
+import { Header } from "./components/UI/Header";
 import { CurrentWeather } from "./components/CurrentWeather";
 import { DailyForecast } from "./components/DailyForecast";
-import { Footer } from "./components/Footer";
+import { Footer } from "./components/UI/Footer";
 import { Box, Card, CardContent } from "@mui/material";
 import { getCoordinates } from "./utils/printLocation";
 import { useEffect, useState } from "react";
@@ -12,8 +12,8 @@ import { SearchBar } from "./components/SearchBar";
 import { SearchResultsList } from "./components/SearchResultsList";
 import { SearchResultType } from "./types/searchResultType";
 import { reverseGeocode } from "./utils/reverseGeocode";
-import { ErrorComponent } from "./components/ErrorComponent";
-import { LoadingComponent } from "./components/LoadingComponent";
+import { ErrorComponent } from "./components/UI/ErrorComponent";
+import { LoadingComponent } from "./components/UI/LoadingComponent";
 
 export const Dashboard = () => {
   const [results, setResults] = useState<SearchResultType[]>([]);

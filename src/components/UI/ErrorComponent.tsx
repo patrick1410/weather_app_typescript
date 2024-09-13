@@ -20,7 +20,7 @@ export const ErrorComponent: React.FC<ErrorComponentProps> = ({
       </Typography>
       <Typography color={color}>
         Try to{" "}
-        <Link sx={{ "&:hover": { textDecoration: "none" } }} href="/">
+        <Link color={color} sx={{ textDecoration: "none" }} href="/">
           reload
         </Link>{" "}
         the page
