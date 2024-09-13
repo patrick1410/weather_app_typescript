@@ -1,50 +1,30 @@
-# React + TypeScript + Vite
+# Weather App React + TS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## How to get started
 
-Currently, two official plugins are available:
+You can clone the repo, install and run the app with the following commands:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```plaintext
+npm install
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Description
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Description
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+[Click here to have a look at the app](/)
+
+### Technologies used in this project
+
+<img align="left" alt="TypeScript" width="24px" src="https://raw.githubusercontent.com/github/explore/main/topics/typescript/typescript.png" />
+<img align="left" alt="React" width="24px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" />
+<img align="left" alt="MUI" width="24px" src="https://raw.githubusercontent.com/mui/material-ui/master/docs/public/static/logo.png" />
+<img align="left" alt="Git" width="24px" src="https://raw.githubusercontent.com/github/explore/main/topics/git/git.png" />
+<br/>
+
+## App Stories
+
+The app allows users to:
+
+-
