@@ -3,7 +3,7 @@ import { fetchWeatherApi } from "openmeteo";
 import { Header } from "./components/Header";
 import { CurrentWeather } from "./components/CurrentWeather";
 import { DailyForecast } from "./components/DailyForecast";
-import { Box, Card, CardContent } from "@mui/material";
+import { Box, Card, CardContent, Typography } from "@mui/material";
 import { getCoordinates } from "./utils/printLocation";
 import { useEffect, useState } from "react";
 import { WeatherData } from "./types/weatherData";
@@ -11,6 +11,7 @@ import { SearchBar } from "./components/SearchBar";
 import { SearchResultsList } from "./components/SearchResultsList";
 import { SearchResultType } from "./types/searchResultType";
 import { reverseGeocode } from "./utils/reverseGeocode";
+import { ErrorComponent } from "./components/ErrorComponent";
 
 export const Dashboard = () => {
   const [results, setResults] = useState<SearchResultType[]>([]);
@@ -21,6 +22,8 @@ export const Dashboard = () => {
   );
   const [input, setInput] = useState<string>("");
   const [placeName, setPlaceName] = useState<string | undefined>("");
+  const [isLoading, setIsLoading] = useState<boolean>(true); // New loading state
+  const [error, setError] = useState<string | null>(null); // New error state
 
   useEffect(() => {
     // Fetch coordinates
@@ -41,6 +44,9 @@ export const Dashboard = () => {
     if (lat === undefined || long === undefined) {
       return;
     }
+
+    setIsLoading(true); // Start loading
+    setError(null); // Reset error state
 
     try {
       const params = {
@@ -103,10 +109,13 @@ export const Dashboard = () => {
           temperature2mMin: Array.from(daily.variables(2)!.valuesArray()!),
         },
       };
-
+      // throw new Error("test");
       setWeatherData(newWeatherData);
     } catch (error) {
       console.log("Error fetching weather data:", error);
+      setError(`${error}`);
+    } finally {
+      setIsLoading(false); // Stop loading
     }
   };
 
@@ -149,11 +158,19 @@ export const Dashboard = () => {
     setResults([]);
   };
 
-  if (!weatherData) {
+  if (error) {
+    return (
+      <>
+        <ErrorComponent error={error} color={"#B22222"} />
+      </>
+    );
+  }
+
+  if (isLoading || !weatherData) {
     // Show a loading state while data is being fetched
     return (
       <>
-        <div>Loading weather data...</div>
+        <Typography>Loading weather data...</Typography>
       </>
     );
   }
