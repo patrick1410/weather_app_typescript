@@ -35,7 +35,6 @@ export const DailyForecast: React.FC<DailyForecastProps> = ({
     <Card
       sx={{
         background: "none",
-        // overflow: "",
         boxShadow: "0px 0px 8px #ddd",
         borderRadius: "15px",
       }}

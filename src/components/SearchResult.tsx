@@ -4,7 +4,7 @@ import ReactCountryFlag from "react-country-flag";
 
 type SearchResultProps = {
   result: SearchResultType;
-  handlePlace: (lat: number, long: number, name: string) => void; // Update the return type to void
+  handlePlace: (lat: number, long: number, name: string) => void;
 };
 
 export const SearchResult: React.FC<SearchResultProps> = ({

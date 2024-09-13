@@ -4,7 +4,7 @@ import { SearchResultType } from "../types/searchResultType";
 
 type SearchResultsListProps = {
   results: SearchResultType[];
-  handlePlace: (lat: number, long: number, name: string) => void; // Update the return type to void
+  handlePlace: (lat: number, long: number, name: string) => void;
 };
 
 export const SearchResultsList: React.FC<SearchResultsListProps> = ({
