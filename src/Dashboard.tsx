@@ -12,6 +12,7 @@ import { SearchResultsList } from "./components/SearchResultsList";
 import { SearchResultType } from "./types/searchResultType";
 import { reverseGeocode } from "./utils/reverseGeocode";
 import { ErrorComponent } from "./components/ErrorComponent";
+import { LoadingComponent } from "./components/LoadingComponent";
 
 export const Dashboard = () => {
   const [results, setResults] = useState<SearchResultType[]>([]);
@@ -22,8 +23,8 @@ export const Dashboard = () => {
   );
   const [input, setInput] = useState<string>("");
   const [placeName, setPlaceName] = useState<string | undefined>("");
-  const [isLoading, setIsLoading] = useState<boolean>(true); // New loading state
-  const [error, setError] = useState<string | null>(null); // New error state
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     // Fetch coordinates
@@ -109,7 +110,7 @@ export const Dashboard = () => {
           temperature2mMin: Array.from(daily.variables(2)!.valuesArray()!),
         },
       };
-      // throw new Error("test");
+
       setWeatherData(newWeatherData);
     } catch (error) {
       console.log("Error fetching weather data:", error);
@@ -158,6 +159,7 @@ export const Dashboard = () => {
     setResults([]);
   };
 
+  // If error show ErrorComponent
   if (error) {
     return (
       <>
@@ -166,11 +168,11 @@ export const Dashboard = () => {
     );
   }
 
+  // If isLoading || !weatherData show loading Component
   if (isLoading || !weatherData) {
-    // Show a loading state while data is being fetched
     return (
       <>
-        <Typography>Loading weather data...</Typography>
+        <LoadingComponent />
       </>
     );
   }
