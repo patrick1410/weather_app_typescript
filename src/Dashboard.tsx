@@ -3,7 +3,7 @@ import { fetchWeatherApi } from "openmeteo";
 import { Header } from "./components/Header";
 import { CurrentWeather } from "./components/CurrentWeather";
 import { DailyForecast } from "./components/DailyForecast";
-import { Box, Card, CardContent, Typography } from "@mui/material";
+import { Box, Card, CardContent } from "@mui/material";
 import { getCoordinates } from "./utils/printLocation";
 import { useEffect, useState } from "react";
 import { WeatherData } from "./types/weatherData";
