@@ -16,6 +16,7 @@ export const LoadingComponent = () => {
         sx={{ "svg circle": { stroke: "url(#my_gradient)" } }}
       />
       <Typography>Loading weather data...</Typography>
+      <Typography>Please turn on your location 📍!</Typography>
     </>
   );
 };
